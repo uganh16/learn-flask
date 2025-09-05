@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hello-form">
+  <form method="post" action="{{ request.full_path }}">
+    {{ form.csrf_token }}
+    {{ form.submit(class='btn btn-secondary') }}
+  </form>
+</div>
+
+<h5>{{ messages | length }} messages
+  <small class="float-right">
+    <a href="#buttom" title="Go Bottom">&darr;</a>
+  </small>
+</h5>
+
+<div class="list-group">
+  {% for message in messages %}
+  <a class="list-group-item list-group-item-action flex-column">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1 text-success">{{ message.name }}
+        <small class="text-muted"> #{{ loop.revindex }}</small>
+      </h5>
+      <small data-toggle="tooltip">
+        {{}}
+      </small>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}
