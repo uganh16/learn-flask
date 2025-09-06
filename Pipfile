@@ -8,6 +8,7 @@ flask = "*"
 flask-sqlalchemy = "*"
 flask-wtf = "*"
 python-dotenv = "*"
+bootstrap-flask = "*"
 
 [dev-packages]
 faker = "*"
