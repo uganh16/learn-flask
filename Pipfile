@@ -9,6 +9,7 @@ flask-sqlalchemy = "*"
 flask-wtf = "*"
 python-dotenv = "*"
 bootstrap-flask = "*"
+flask-moment = "*"
 
 [dev-packages]
 faker = "*"
