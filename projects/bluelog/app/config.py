@@ -14,4 +14,9 @@ else:
 SECRET_KEY = os.getenv('SECRET_KEY', 'secret string')
 
 SQLALCHEMY_TRACK_MODIFICATIONS = False
-SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URI', prefix + os.path.join(base_dir, 'db.sqlite3'))
+SQLALCHEMY_DATABASE_URI = os.getenv(
+    'DATABASE_URI', prefix + os.path.join(base_dir, 'db.sqlite3'))
+
+BLUELOG_EMAIL = os.getenv('BLUELOG_EMAIL')
+BLUELOG_POST_PER_PAGE = 10
+BLUELOG_COMMENT_PER_PAGE = 15

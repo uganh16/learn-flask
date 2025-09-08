@@ -1,7 +1,7 @@
 import click
 from flask import Flask, render_template
 
-from app.extensions import bootstrap, db
+from app.extensions import bootstrap, db, moment
 from app.models import Admin, Category, Comment, Post
 
 
@@ -22,6 +22,7 @@ def create_app():
 def register_extensions(app):
     bootstrap.init_app(app)
     db.init_app(app)
+    moment.init_app(app)
 
 
 def register_blueprints(app):
@@ -75,9 +76,11 @@ def register_commands(app):
 
     @app.cli.command()
     @click.option('--category', default=10, help='Quantity of categories, default is 10.')
-    def forge(category):
+    @click.option('--post', default=50, help='Quantity of posts, default is 50.')
+    @click.option('--comment', default=500, help='Quantity of comments, default is 500.')
+    def forge(category, post, comment):
         '''Generate fake data.'''
-        from app.fakes import fake_admin, fake_categories
+        from app.fakes import fake_admin, fake_categories, fake_posts_and_comments
 
         db.drop_all()
         db.create_all()
@@ -87,5 +90,8 @@ def register_commands(app):
 
         click.echo('Generating {0} categories...'.format(category))
         fake_categories(category)
+
+        click.echo('Generating {0} posts and {1} comments...'.format(post, comment))
+        fake_posts_and_comments(post, comment)
 
         click.echo('Done.')
