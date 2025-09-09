@@ -1,7 +1,7 @@
 import click
 from flask import Flask, render_template
 
-from app.extensions import bootstrap, db, moment
+from app.extensions import bootstrap, db, login_manager, moment
 from app.models import Admin, Category, Comment, Post
 
 
@@ -22,6 +22,7 @@ def create_app():
 def register_extensions(app):
     bootstrap.init_app(app)
     db.init_app(app)
+    login_manager.init_app(app)
     moment.init_app(app)
 
 

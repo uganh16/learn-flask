@@ -1,6 +1,13 @@
 from flask_wtf import FlaskForm
-from wtforms import HiddenField, StringField, SubmitField, TextAreaField
+from wtforms import BooleanField, HiddenField, PasswordField, StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, Length
+
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(1, 20)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(1, 128)])
+    remember = BooleanField('Remember me')
+    submit = SubmitField('Log in')
 
 
 class CommentForm(FlaskForm):

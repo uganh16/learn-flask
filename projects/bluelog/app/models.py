@@ -1,10 +1,11 @@
 from datetime import datetime, timezone
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.extensions import db
 
 
-class Admin(db.Model):
+class Admin(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(20))
     password_hash = db.Column(db.String(128))
@@ -17,7 +18,7 @@ class Admin(db.Model):
         self.password_hash = generate_password_hash(password)
 
     def validate_password(self, password):
-        return check_password_hash(self.password_hash, password)
+        return self.password_hash and check_password_hash(self.password_hash, password)
 
 
 class Category(db.Model):

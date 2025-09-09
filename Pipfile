@@ -11,6 +11,7 @@ python-dotenv = "*"
 bootstrap-flask = "*"
 flask-moment = "*"
 click = "*"
+flask-login = "*"
 
 [dev-packages]
 faker = "*"
