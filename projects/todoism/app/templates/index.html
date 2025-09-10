@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todoism</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div id="main"></div>
+    <script src="https://code.jquery.com/jquery-1.9.0.min.js" integrity="sha256-f6DVw/U4x2+HjgEqw5BZf67Kq/5vudRZuRkljnbF344=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script>
+      const csrf_token = "{{ csrf_token() }}";
+      const login_page_url = "{{ url_for('auth.login') }}";
+      const app_page_url = "{{ url_for('todo.app') }}";
+      const intro_page_url = "{{ url_for('home.intro') }}";
+      const register_url = "{{ url_for('auth.register') }}";
+      const login_url = "{{ url_for('auth.login') }}";
+      const logout_url = "{{ url_for('auth.logout') }}";
+      const new_item_url = "{{ url_for('todo.new_item') }}";
+      const clear_item_url = "{{ url_for('todo.clear_items') }}";
+      // @todo _
+      const default_error_message = "Oops, something was wrong!";
+      const empty_body_error_message = 'Your todo was empty!';
+      const login_error_message = "Empty username or password!";
+    </script>
+  </body>
+</html>

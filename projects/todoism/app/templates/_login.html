@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<header class="center">
+  <h4 class="red-text">Login on Todoism <!-- @todo _ --></h4>
+  <br>
+</header>
+<div class="login-form">
+  <input
+    class="validate login-input"
+    id="username-input"
+    name="username"
+    type="text"
+    placeholder="Username"
+    required
+    autofocus>
+  <input
+    class="validate login-input"
+    id="password-input"
+    name="password"
+    type="password"
+    placeholder="Password"
+    required>
+  <span class="right">
+    <a class="btn grey" id="register-btn">Get a test account <!-- @todo _ --></a>
+    <a class="btn red" id="login-btn">Login <!-- @todo _ --></a>
+  </span>
+  <p>
+    <a class="blue-text link button left" id="toggle-password">Toggle Password <!-- @todo _ --></a>
+  </p>&nbsp;
+</div>
+{% endblock %}
