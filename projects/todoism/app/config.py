@@ -16,3 +16,5 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'secret string')
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 SQLALCHEMY_DATABASE_URI = os.getenv(
     'DATABASE_URI', prefix + os.path.join(base_dir, 'db.sqlite3'))
+
+TODOISM_ITEM_PER_PAGE = 20

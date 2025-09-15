@@ -12,9 +12,11 @@ bootstrap-flask = "*"
 flask-moment = "*"
 click = "*"
 flask-login = "*"
+flask-cors = "*"
 
 [dev-packages]
 faker = "*"
+httpie = "*"
 
 [requires]
 python_version = "3.13"
